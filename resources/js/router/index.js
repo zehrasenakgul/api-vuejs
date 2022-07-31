@@ -1,12 +1,25 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import CategoriesComponent from "../components/categories/CategoriesComponent";
+import CategoriesIndex from "../components/categories/CategoriesIndex";
+import CategoriesCreate from "../components/categories/CategoriesCreate";
+import CategoriesEdit from "../components/categories/CategoriesEdit";
 
 const routes = [
     {
-        path: "/dashboard",
+        path: "/categories",
         name: "categories.index",
-        component: CategoriesComponent,
+        component: CategoriesIndex,
+    },
+    {
+        path: "/categories/create",
+        name: "categories.create",
+        component: CategoriesCreate,
+    },
+    {
+        path: "/categories/:id/edit",
+        name: "categories.edit",
+        component: CategoriesEdit,
+        props: true,
     },
 ];
 
