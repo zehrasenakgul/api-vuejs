@@ -25,4 +25,8 @@ Route::get('/categories', function () {
     return view('layouts.categories.categories');
 })->middleware(['auth'])->name('categories');
 
+Route::get('/expenses', function () {
+    return view('layouts.expenses.expenses');
+})->middleware(['auth'])->name('expenses');
+
 require __DIR__ . '/auth.php';

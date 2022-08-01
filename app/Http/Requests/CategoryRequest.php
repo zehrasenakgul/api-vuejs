@@ -31,7 +31,7 @@ class CategoryRequest extends FormRequest
     public function message()
     {
         return [
-            'name.required' => 'Kategori adı girilmesi zorunludur.'
+            'name.required' => 'This Name field is required'
         ];
     }
 }

@@ -21,7 +21,9 @@ export default function useCategories() {
     const storeCategory = async (data) => {
         errors.value = "";
         try {
-            await axios.post("/api/categories", data);
+            await axios.post("/api/categories", data).then((response) => {
+                console.log(response.data);
+            });
             await router.push({ name: "categories.index" });
         } catch (e) {
             if (e.response.status === 422) {

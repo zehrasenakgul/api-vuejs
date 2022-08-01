@@ -8,20 +8,37 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
-                </x-nav-link>
-                <x-nav-link :href="route('categories')" :active="request()->routeIs('categories')">
-                    {{ __('Categories') }}
-                </x-nav-link>
-
-
-            </div>
+            <ul class="navbar-nav mr-auto ">
+                <li class="nav-item ml-3 active">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
+                </li>
+                <li class="nav-item ml-3">
+                    <x-nav-link :href="route('categories')" :active="request()->routeIs('categories')">
+                        {{ __('Categories') }}
+                    </x-nav-link>
+                </li>
+                <li class="nav-item ml-3 ">
+                    <x-nav-link :href="route('expenses')" :active="request()->routeIs('expenses')">
+                        {{ __('Expenses') }}
+                    </x-nav-link>
+                </li>
+                <li class="nav-item ml-3">
+                    <form method="POST" class="d-block d-sm-none" action="{{ route('logout') }}">
+                        @csrf
+                        <x-nav-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </x-nav-link>
+                    </form>
+                </li>
+            </ul>
         </div>
 
-        <ul>
-            <div class="dropdown">
+        <ul class="dropdown d-none d-md-block d-lg-block">
+            <div class="dropdown ">
                 <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     {{ Auth::user()->name }} </button>

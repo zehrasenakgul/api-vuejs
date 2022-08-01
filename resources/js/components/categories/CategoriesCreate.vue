@@ -1,16 +1,14 @@
 <template>
-  <div v-if="errors">
+  <div v-if="errors" v-for="(v, k) in errors" :key="k">
     <div
-      v-for="(v, k) in errors"
-      :key="k"
-      class="bg-red-500 text-white rounded font-bold mb-4 shadow-lg py-2 px-4 pr-0"
+      class="alert alert-light text-red-600"
+      v-for="error in v"
+      :key="error"
+      role="alert"
     >
-      <p v-for="error in v" :key="error" class="text-sm">
-        {{ error }}
-      </p>
+      {{ error }}
     </div>
   </div>
-
   <form class="space-y-6" @submit.prevent="saveCategory">
     <div class="space-y-4 rounded-md shadow-sm mb-3">
       <div>
@@ -44,9 +42,6 @@ export default {
   setup() {
     const form = reactive({
       name: "",
-      email: "",
-      address: "",
-      website: "",
     });
 
     const { errors, storeCategory } = useCategories();

@@ -1,7 +1,7 @@
 <template>
   <div class="overflow-hidden overflow-x-auto min-w-full align-middle sm:rounded-md">
     <div class="flex place-content-end mb-4">
-      <div class="px-4 py-2 text-white btn btn-primary hover:btn-primary cursor-pointer">
+      <div class="px-4 py-2 text-white btn btn-dark hover:btn-primary cursor-pointer">
         <router-link :to="{ name: 'categories.create' }" class="text-sm font-medium"
           >Create Category</router-link
         >
@@ -28,7 +28,7 @@
                   name: 'categories.edit',
                   params: { id: item.id },
                 }"
-                class="mr-2 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
+                class="mr-2 inline-flex items-center px-4 py-2 btn btn-success border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
               >
                 Edit
               </router-link>
@@ -36,7 +36,7 @@
             <td width="60">
               <button
                 @click="deleteCategory(item.id)"
-                class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
+                class="inline-flex items-center px-4 py-2 btn btn-danger border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
               >
                 Delete
               </button>
