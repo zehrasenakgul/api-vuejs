@@ -26,6 +26,7 @@
               <td>{{ item.date }}</td>
               <td>{{ item.amount }}</td>
               <td>{{ item.spending }}</td>
+
               <td width="60">
                 <router-link
                   :to="{
