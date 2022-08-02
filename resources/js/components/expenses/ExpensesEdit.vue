@@ -54,7 +54,6 @@
             v-for="(item, index) in categories"
             :key="item.id"
             v-bind:value="item.id"
-            v-model="form.category_id"
           >
             {{ item.name }}
           </option>

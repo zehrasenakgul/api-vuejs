@@ -15,6 +15,7 @@
             <th scope="col">Date</th>
             <th scope="col">Spending Amount</th>
             <th scope="col">Spent Place</th>
+            <th scope="col">Category</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
           </tr>
@@ -26,6 +27,7 @@
               <td>{{ item.date }}</td>
               <td>{{ item.amount }}</td>
               <td>{{ item.spending }}</td>
+              <td>{{ item.category }}</td>
 
               <td width="60">
                 <router-link

@@ -6,6 +6,7 @@ import CategoriesEdit from "../components/categories/CategoriesEdit";
 import ExpensesIndex from "../components/expenses/ExpensesIndex";
 import ExpensesCreate from "../components/expenses/ExpensesCreate";
 import ExpensesEdit from "../components/expenses/ExpensesEdit";
+import DashboardIndex from "../components/dashboard/DashboardIndex";
 
 const routes = [
     {
@@ -39,6 +40,11 @@ const routes = [
         name: "expenses.edit",
         component: ExpensesEdit,
         props: true,
+    },
+    {
+        path: "/dashboard",
+        name: "dashboard.index",
+        component: DashboardIndex,
     },
 ];
 
