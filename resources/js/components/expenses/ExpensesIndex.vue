@@ -3,7 +3,7 @@
     <div class="flex place-content-end mb-4">
       <div class="px-4 py-2 text-white btn btn-dark hover:btn-primary cursor-pointer">
         <router-link :to="{ name: 'expenses.create' }" class="text-sm font-medium"
-          >Create Expense</router-link
+          >Harcama Ekle</router-link
         >
       </div>
     </div>
@@ -12,12 +12,12 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Date</th>
-            <th scope="col">Spending Amount</th>
-            <th scope="col">Spent Place</th>
-            <th scope="col">Category</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">Harcama Miktarı</th>
+            <th scope="col">Harcanan Yer</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Düzenle</th>
+            <th scope="col">Sil</th>
           </tr>
         </thead>
         <tbody>
@@ -37,7 +37,7 @@
                   }"
                   class="mr-2 inline-flex items-center px-4 py-2 btn btn-success border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
                 >
-                  Edit
+                  Düzenle
                 </router-link>
               </td>
               <td width="60">
@@ -45,7 +45,7 @@
                   @click="deleteExpense(item.id)"
                   class="inline-flex items-center px-4 py-2 btn btn-danger border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
                 >
-                  Delete
+                  Sil
                 </button>
               </td>
             </tr>
@@ -67,7 +67,7 @@ export default {
     onMounted(getExpenses);
 
     const deleteExpense = async (id) => {
-      if (!window.confirm("Are you sure?")) {
+      if (!window.confirm("Emin Misin?")) {
         return;
       }
 

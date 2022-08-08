@@ -13,7 +13,7 @@
     <div class="space-y-4 rounded-md shadow-sm mb-3">
       <div class="mb-3">
         <label for="name" class="block text-sm font-medium text-gray-700"
-          >Spending Amount</label
+          >Harcama Miktarı</label
         >
         <div class="mt-1">
           <input
@@ -28,7 +28,7 @@
 
       <div class="mb-3">
         <label for="spending" class="block text-sm font-medium text-gray-700"
-          >Spent Place</label
+          >Harcanan Yer</label
         >
         <div class="mt-1">
           <input
@@ -42,7 +42,7 @@
       </div>
       <div class="mb-3">
         <label for="category_id" class="block text-sm font-medium text-gray-700"
-          >Select Category</label
+          >Kategori Seç</label
         >
 
         <select
@@ -62,7 +62,7 @@
         <div class="mt-1"></div>
       </div>
       <div class="mb-3">
-        <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
+        <label for="date" class="block text-sm font-medium text-gray-700">Tarih</label>
         <div class="mt-1">
           <input
             type="date"
@@ -79,7 +79,7 @@
       type="submit"
       class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase bg-gray-800 rounded-md border border-transparent ring-gray-300 transition duration-150 ease-in-out hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring disabled:opacity-25"
     >
-      Save
+      Güncelle
     </button>
   </form>
 </template>

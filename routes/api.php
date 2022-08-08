@@ -23,4 +23,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('categories', CategoryController::class);
 Route::apiResource('expenses', ExpenseController::class);
-Route::apiResource('dashboard', DashboardController::class);
