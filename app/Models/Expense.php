@@ -9,6 +9,8 @@ class Expense extends Model
 {
     use HasFactory;
     protected $fillable = ["amount", "spending", "category_id", "date"];
+
+
     public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id');

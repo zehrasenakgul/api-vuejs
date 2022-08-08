@@ -23,7 +23,9 @@
               <tbody>
                 <tr>
                   <td scope="row"><i class="fa fa-circle-dot"></i></td>
-                  <td>{{ maxexpense.month }}</td>
+                  <td>
+                    {{ isMonth(maxexpense.month) }}
+                  </td>
                   <td>{{ maxexpense.count }}</td>
                   <td>{{ maxexpense.sums }}</td>
                 </tr>
@@ -56,7 +58,7 @@
               <tbody>
                 <tr>
                   <td scope="row"><i class="fa fa-circle-dot"></i></td>
-                  <td>{{ minexpense.month }}</td>
+                  <td>{{ isMonth(minexpense.month) }}</td>
                   <td>{{ minexpense.count }}</td>
                   <td>{{ minexpense.sums }}</td>
                 </tr>
@@ -109,8 +111,15 @@
 <script>
 import useExpenses from "../../composables/dashboard";
 import { onMounted } from "vue";
+import moment from "moment";
 
 export default {
+  methods: {
+    isMonth(date) {
+      const month = moment(date, "MM").format("MMMM");
+      return month;
+    },
+  },
   setup() {
     const {
       maxexpense,
