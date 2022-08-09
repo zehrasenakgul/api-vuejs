@@ -119,6 +119,7 @@ class DashboardController extends Controller
         return new DashboardResource($expense);
     }
 
+
     public function expensesThisYear()
     {
         $expense = Expense::with("category")
@@ -127,5 +128,22 @@ class DashboardController extends Controller
             ->get();
 
         return new DashboardResource($expense);
+    }
+    public function categoryByYear()
+    {
+        $expenses = Expense::select("category_id")
+            ->selectRaw(
+                "EXTRACT(YEAR FROM `date`) as year"
+            )
+            ->groupBy("year", "category_id")
+            ->with("category")
+            ->orderBy('year', 'desc')
+            ->get();
+
+        $return = array();
+        foreach ($expenses as $val) {
+            $return[$val->year][] = $val;
+        }
+        return $return;
     }
 }

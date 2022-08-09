@@ -13,6 +13,7 @@ export default function useExpenses() {
     const totalExpenseThisYear = ref([]);
     const years = ref([]);
     const byMonthYear = ref([]);
+    const categoryByYear = ref([]);
 
     const getMaxExpense = async () => {
         let response = await axios.get("/api/dashboard/maxExpense");
@@ -61,6 +62,10 @@ export default function useExpenses() {
         let response = await axios.get("/api/dashboard/byMonthYear");
         byMonthYear.value = response.data;
     };
+    const getCategoryByYear = async () => {
+        let response = await axios.get("/api/dashboard/categoryByYear");
+        categoryByYear.value = response.data;
+    };
 
     return {
         maxexpense,
@@ -70,6 +75,7 @@ export default function useExpenses() {
         expensesThisYear,
         category,
         years,
+        categoryByYear,
         spendingRepeat,
         totalExpenseThisMonth,
         totalExpenseThisYear,
@@ -83,5 +89,6 @@ export default function useExpenses() {
         getTotalExpenseThisYear,
         getExpensesThisYear,
         getByMonthYear,
+        getCategoryByYear,
     };
 }

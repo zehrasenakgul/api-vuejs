@@ -193,7 +193,36 @@
                     <li class="list-group-item" v-if="index.year === year.year">
                       Ay: {{ isMonth(index.month) }} <br />
                       Toplam Harcama Miktarı: {{ index.sums }} <br />
-                       Toplam Harcama Sayısı: {{ index.count }}
+                      Toplam Harcama Sayısı: {{ index.count }}
+                    </li>
+                  </template>
+                </template>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row gy-5">
+    <div class="col">
+      <div class="shadow p-3 mb-5 bg-body rounded">
+        <div
+          class="overflow-hidden overflow-x-auto min-w-full align-middle sm:rounded-md"
+        >
+          <div class="flex place-content-end mb-4">
+            <div class="px-4 py-2 text-black hover:btn-primary cursor-pointer">
+              Yıl Bazında Harcama Kategorileri
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 mb-2" v-for="year in years">
+              <ul class="list-group">
+                <li class="list-group-item" style="font-weight: 600">{{ year.year }}</li>
+                <template v-for="item in categoryByYear">
+                  <template v-for="index in item">
+                    <li class="list-group-item" v-if="index.year === year.year">
+                      {{ index.category.name }}
                     </li>
                   </template>
                 </template>
@@ -274,6 +303,7 @@ export default {
       spendingRepeat,
       totalExpenseThisMonth,
       totalExpenseThisYear,
+      categoryByYear,
       getLastExpense,
       getMinExpense,
       getMaxExpense,
@@ -283,6 +313,7 @@ export default {
       getTotalExpenseThisYear,
       getExpensesThisYear,
       getByMonthYear,
+      getCategoryByYear,
     } = useExpenses();
 
     onMounted(getMaxExpense);
@@ -294,6 +325,8 @@ export default {
     onMounted(getTotalExpenseThisYear);
     onMounted(getExpensesThisYear);
     onMounted(getByMonthYear);
+    onMounted(getCategoryByYear);
+
     return {
       maxexpense,
       category,
@@ -301,6 +334,7 @@ export default {
       spendingRepeat,
       expensesThisMonth,
       years,
+      categoryByYear,
       byMonthYear,
       expensesThisYear,
       lastexpense,

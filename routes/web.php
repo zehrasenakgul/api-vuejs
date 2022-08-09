@@ -27,6 +27,7 @@ Route::controller(DashboardController::class)->group(function () {
         Route::get("/expensesThisMonth", "expensesThisMonth")->name(".expensesThisMonth");
         Route::get("/expensesThisYear", "expensesThisYear")->name(".expensesThisYear");
         Route::get("/spendingRepeat", "spendingRepeat")->name(".spendingRepeat");
+        Route::get("/categoryByYear", "categoryByYear")->name(".categoryByYear");
         Route::get("/totalExpenseThisMonth", "totalExpenseThisMonth")->name(".totalExpenseThisMonth");
         Route::get("/byMonthYear", "byMonthYear")->name(".byMonthYear");
         Route::get("/years", "years")->name(".years");

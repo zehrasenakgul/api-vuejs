@@ -28580,6 +28580,7 @@ __webpack_require__.r(__webpack_exports__);
         spendingRepeat = _useExpenses.spendingRepeat,
         totalExpenseThisMonth = _useExpenses.totalExpenseThisMonth,
         totalExpenseThisYear = _useExpenses.totalExpenseThisYear,
+        categoryByYear = _useExpenses.categoryByYear,
         getLastExpense = _useExpenses.getLastExpense,
         getMinExpense = _useExpenses.getMinExpense,
         getMaxExpense = _useExpenses.getMaxExpense,
@@ -28588,7 +28589,8 @@ __webpack_require__.r(__webpack_exports__);
         getTotalExpenseThisMonth = _useExpenses.getTotalExpenseThisMonth,
         getTotalExpenseThisYear = _useExpenses.getTotalExpenseThisYear,
         getExpensesThisYear = _useExpenses.getExpensesThisYear,
-        getByMonthYear = _useExpenses.getByMonthYear;
+        getByMonthYear = _useExpenses.getByMonthYear,
+        getCategoryByYear = _useExpenses.getCategoryByYear;
 
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(getMaxExpense);
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(getMinExpense);
@@ -28599,6 +28601,7 @@ __webpack_require__.r(__webpack_exports__);
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(getTotalExpenseThisYear);
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(getExpensesThisYear);
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(getByMonthYear);
+    (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(getCategoryByYear);
     return {
       maxexpense: maxexpense,
       category: category,
@@ -28606,6 +28609,7 @@ __webpack_require__.r(__webpack_exports__);
       spendingRepeat: spendingRepeat,
       expensesThisMonth: expensesThisMonth,
       years: years,
+      categoryByYear: categoryByYear,
       byMonthYear: byMonthYear,
       expensesThisYear: expensesThisYear,
       lastexpense: lastexpense,
@@ -29436,27 +29440,67 @@ var _hoisted_63 = {
 var _hoisted_64 = {
   "class": "overflow-hidden overflow-x-auto min-w-full align-middle sm:rounded-md"
 };
-var _hoisted_65 = {
+
+var _hoisted_65 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex place-content-end mb-4"
-};
-var _hoisted_66 = {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "px-4 py-2 text-black hover:btn-primary cursor-pointer"
-};
-
-var _hoisted_67 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Bu Yıl Yapılan Harcamalar");
-
-var _hoisted_68 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+}, " Yıl Bazında Harcama Kategorileri ")], -1
 /* HOISTED */
 );
 
+var _hoisted_66 = {
+  "class": "row"
+};
+var _hoisted_67 = {
+  "class": "col-md-3 mb-2"
+};
+var _hoisted_68 = {
+  "class": "list-group"
+};
 var _hoisted_69 = {
-  "class": "table-responsive"
+  "class": "list-group-item",
+  style: {
+    "font-weight": "600"
+  }
 };
 var _hoisted_70 = {
+  key: 0,
+  "class": "list-group-item"
+};
+var _hoisted_71 = {
+  "class": "row gy-5"
+};
+var _hoisted_72 = {
+  "class": "col"
+};
+var _hoisted_73 = {
+  "class": "shadow p-3 mb-5 bg-body rounded"
+};
+var _hoisted_74 = {
+  "class": "overflow-hidden overflow-x-auto min-w-full align-middle sm:rounded-md"
+};
+var _hoisted_75 = {
+  "class": "flex place-content-end mb-4"
+};
+var _hoisted_76 = {
+  "class": "px-4 py-2 text-black hover:btn-primary cursor-pointer"
+};
+
+var _hoisted_77 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Bu Yıl Yapılan Harcamalar");
+
+var _hoisted_78 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_79 = {
+  "class": "table-responsive"
+};
+var _hoisted_80 = {
   "class": "table"
 };
 
-var _hoisted_71 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
+var _hoisted_81 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
   "class": "thead-dark"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
@@ -29470,7 +29514,7 @@ var _hoisted_71 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_72 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+var _hoisted_82 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
   scope: "row"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa fa-circle-dot"
@@ -29559,12 +29603,32 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ))])]);
   }), 256
   /* UNKEYED_FRAGMENT */
-  ))])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_61, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_62, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_63, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_64, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_65, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_66, [_hoisted_67, _hoisted_68, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Bu Yıl Yapılan Toplam Harcama : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.totalExpenseThisYear.sums), 1
+  ))])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_61, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_62, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_63, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_64, [_hoisted_65, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_66, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.years, function (year) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_67, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_68, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_69, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(year.year), 1
+    /* TEXT */
+    ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.categoryByYear, function (item) {
+      return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(item, function (index) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [index.year === year.year ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", _hoisted_70, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(index.category.name), 1
+        /* TEXT */
+        )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
+        /* STABLE_FRAGMENT */
+        );
+      }), 256
+      /* UNKEYED_FRAGMENT */
+      ))], 64
+      /* STABLE_FRAGMENT */
+      );
+    }), 256
+    /* UNKEYED_FRAGMENT */
+    ))])]);
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  ))])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_71, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_72, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_73, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_74, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_75, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_76, [_hoisted_77, _hoisted_78, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Bu Yıl Yapılan Toplam Harcama : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.totalExpenseThisYear.sums), 1
   /* TEXT */
-  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_69, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_70, [_hoisted_71, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.expensesThisYear, function (item, index) {
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_79, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_80, [_hoisted_81, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.expensesThisYear, function (item, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       key: item.id
-    }, [_hoisted_72, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.isDate(item.date)), 1
+    }, [_hoisted_82, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.isDate(item.date)), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.amount), 1
     /* TEXT */
@@ -30321,6 +30385,7 @@ function useExpenses() {
   var totalExpenseThisYear = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
   var years = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
   var byMonthYear = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
+  var categoryByYear = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
 
   var getMaxExpense = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -30572,6 +30637,33 @@ function useExpenses() {
     };
   }();
 
+  var getCategoryByYear = /*#__PURE__*/function () {
+    var _ref10 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10() {
+      var response;
+      return _regeneratorRuntime().wrap(function _callee10$(_context10) {
+        while (1) {
+          switch (_context10.prev = _context10.next) {
+            case 0:
+              _context10.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/categoryByYear");
+
+            case 2:
+              response = _context10.sent;
+              categoryByYear.value = response.data;
+
+            case 4:
+            case "end":
+              return _context10.stop();
+          }
+        }
+      }, _callee10);
+    }));
+
+    return function getCategoryByYear() {
+      return _ref10.apply(this, arguments);
+    };
+  }();
+
   return {
     maxexpense: maxexpense,
     minexpense: minexpense,
@@ -30580,6 +30672,7 @@ function useExpenses() {
     expensesThisYear: expensesThisYear,
     category: category,
     years: years,
+    categoryByYear: categoryByYear,
     spendingRepeat: spendingRepeat,
     totalExpenseThisMonth: totalExpenseThisMonth,
     totalExpenseThisYear: totalExpenseThisYear,
@@ -30592,7 +30685,8 @@ function useExpenses() {
     getTotalExpenseThisMonth: getTotalExpenseThisMonth,
     getTotalExpenseThisYear: getTotalExpenseThisYear,
     getExpensesThisYear: getExpensesThisYear,
-    getByMonthYear: getByMonthYear
+    getByMonthYear: getByMonthYear,
+    getCategoryByYear: getCategoryByYear
   };
 }
 
