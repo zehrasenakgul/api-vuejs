@@ -11,17 +11,17 @@
             <ul class="navbar-nav mr-auto ">
                 <li class="nav-item ml-3 active">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Anasayfa') }}
                     </x-nav-link>
                 </li>
                 <li class="nav-item ml-3">
                     <x-nav-link :href="route('categories')" :active="request()->routeIs('categories')">
-                        {{ __('Categories') }}
+                        {{ __('Kategoriler') }}
                     </x-nav-link>
                 </li>
                 <li class="nav-item ml-3 ">
                     <x-nav-link :href="route('expenses')" :active="request()->routeIs('expenses')">
-                        {{ __('Expenses') }}
+                        {{ __('Harcamalar') }}
                     </x-nav-link>
                 </li>
                 <li class="nav-item ml-3">

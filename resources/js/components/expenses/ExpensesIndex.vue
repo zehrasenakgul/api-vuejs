@@ -21,35 +21,33 @@
           </tr>
         </thead>
         <tbody>
-          <template v-for="(item, index) in expenses" :key="item.id">
-            <tr>
-              <td scope="row">{{ index + 1 }}</td>
-              <td>{{ item.date }}</td>
-              <td>{{ item.amount }}</td>
-              <td>{{ item.spending }}</td>
-              <td>{{ item.category }}</td>
+          <tr v-for="(item, index) in expenses" :key="item.id">
+            <td scope="row">{{ index + 1 }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.amount }}</td>
+            <td>{{ item.spending }}</td>
+            <td>{{ item.category }}</td>
 
-              <td width="60">
-                <router-link
-                  :to="{
-                    name: 'expenses.edit',
-                    params: { id: item.id },
-                  }"
-                  class="mr-2 inline-flex items-center px-4 py-2 btn btn-success border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
-                >
-                  Düzenle
-                </router-link>
-              </td>
-              <td width="60">
-                <button
-                  @click="deleteExpense(item.id)"
-                  class="inline-flex items-center px-4 py-2 btn btn-danger border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
-                >
-                  Sil
-                </button>
-              </td>
-            </tr>
-          </template>
+            <td width="60">
+              <router-link
+                :to="{
+                  name: 'expenses.edit',
+                  params: { id: item.id },
+                }"
+                class="mr-2 inline-flex items-center px-4 py-2 btn btn-success border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
+              >
+                Düzenle
+              </router-link>
+            </td>
+            <td width="60">
+              <button
+                @click="deleteExpense(item.id)"
+                class="inline-flex items-center px-4 py-2 btn btn-danger border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
+              >
+                Sil
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

@@ -24,6 +24,13 @@ Route::controller(DashboardController::class)->group(function () {
         Route::get("/maxExpense", "maxExpense")->name(".maxExpense");
         Route::get("/minExpense", "minExpense")->name(".minExpense");
         Route::get("/lastExpense", "lastExpense")->name(".lastExpense");
+        Route::get("/expensesThisMonth", "expensesThisMonth")->name(".expensesThisMonth");
+        Route::get("/expensesThisYear", "expensesThisYear")->name(".expensesThisYear");
+        Route::get("/spendingRepeat", "spendingRepeat")->name(".spendingRepeat");
+        Route::get("/totalExpenseThisMonth", "totalExpenseThisMonth")->name(".totalExpenseThisMonth");
+        Route::get("/byMonthYear", "byMonthYear")->name(".byMonthYear");
+        Route::get("/years", "years")->name(".years");
+        Route::get("/totalExpenseThisYear", "totalExpenseThisYear")->name(".totalExpenseThisYear");
     });
 });
 
