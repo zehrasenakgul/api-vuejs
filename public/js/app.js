@@ -30399,7 +30399,7 @@ function useExpenses() {
 
             case 2:
               response = _context.sent;
-              maxexpense.value = response.data.data;
+              maxexpense.value = response.data;
 
             case 4:
             case "end":
@@ -30426,7 +30426,7 @@ function useExpenses() {
 
             case 2:
               response = _context2.sent;
-              minexpense.value = response.data.data;
+              minexpense.value = response.data;
 
             case 4:
             case "end":
@@ -30453,8 +30453,8 @@ function useExpenses() {
 
             case 2:
               response = _context3.sent;
-              lastexpense.value = response.data.data;
-              category.value = response.data.data.category;
+              lastexpense.value = response.data;
+              category.value = response.data.category;
 
             case 5:
             case "end":
@@ -30481,7 +30481,7 @@ function useExpenses() {
 
             case 2:
               response = _context4.sent;
-              expensesThisMonth.value = response.data.data;
+              expensesThisMonth.value = response.data;
 
             case 4:
             case "end":
@@ -30508,7 +30508,7 @@ function useExpenses() {
 
             case 2:
               response = _context5.sent;
-              totalExpenseThisMonth.value = response.data.data;
+              totalExpenseThisMonth.value = response.data;
 
             case 4:
             case "end":
@@ -30541,7 +30541,7 @@ function useExpenses() {
 
             case 6:
               yearsList = _context6.sent;
-              years.value = yearsList.data.data;
+              years.value = yearsList.data;
 
             case 8:
             case "end":
@@ -30568,7 +30568,7 @@ function useExpenses() {
 
             case 2:
               response = _context7.sent;
-              expensesThisYear.value = response.data.data;
+              expensesThisYear.value = response.data;
 
             case 4:
             case "end":
@@ -30595,7 +30595,7 @@ function useExpenses() {
 
             case 2:
               response = _context8.sent;
-              totalExpenseThisYear.value = response.data.data;
+              totalExpenseThisYear.value = response.data;
 
             case 4:
             case "end":

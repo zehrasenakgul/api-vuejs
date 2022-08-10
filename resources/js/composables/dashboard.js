@@ -17,45 +17,45 @@ export default function useExpenses() {
 
     const getMaxExpense = async () => {
         let response = await axios.get("/api/dashboard/maxExpense");
-        maxexpense.value = response.data.data;
+        maxexpense.value = response.data;
     };
 
     const getMinExpense = async () => {
         let response = await axios.get("/api/dashboard/minExpense");
-        minexpense.value = response.data.data;
+        minexpense.value = response.data;
     };
 
     const getLastExpense = async () => {
         let response = await axios.get("/api/dashboard/lastExpense");
-        lastexpense.value = response.data.data;
-        category.value = response.data.data.category;
+        lastexpense.value = response.data;
+        category.value = response.data.category;
     };
 
     const getexpensesThisMonth = async () => {
         let response = await axios.get("/api/dashboard/expensesThisMonth");
-        expensesThisMonth.value = response.data.data;
+        expensesThisMonth.value = response.data;
     };
 
     const getTotalExpenseThisMonth = async () => {
         let response = await axios.get("/api/dashboard/totalExpenseThisMonth");
-        totalExpenseThisMonth.value = response.data.data;
+        totalExpenseThisMonth.value = response.data;
     };
 
     const getSpendingRepeat = async () => {
         let response = await axios.get("/api/dashboard/spendingRepeat");
         spendingRepeat.value = response.data;
         let yearsList = await axios.get("/api/dashboard/years");
-        years.value = yearsList.data.data;
+        years.value = yearsList.data;
     };
 
     const getExpensesThisYear = async () => {
         let response = await axios.get("/api/dashboard/expensesThisYear");
-        expensesThisYear.value = response.data.data;
+        expensesThisYear.value = response.data;
     };
 
     const getTotalExpenseThisYear = async () => {
         let response = await axios.get("/api/dashboard/totalExpenseThisYear");
-        totalExpenseThisYear.value = response.data.data;
+        totalExpenseThisYear.value = response.data;
     };
 
     const getByMonthYear = async () => {
