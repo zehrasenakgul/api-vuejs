@@ -9,11 +9,7 @@ import DashboardIndex from "./components/dashboard/DashboardIndex";
 createApp({
     components: {
         CategoriesIndex,
-    },
-    components: {
         ExpensesIndex,
-    },
-    components: {
         DashboardIndex,
     },
 })

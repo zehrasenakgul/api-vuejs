@@ -30116,10 +30116,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_categories_CategoriesIndex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/categories/CategoriesIndex */ "./resources/js/components/categories/CategoriesIndex.vue");
 /* harmony import */ var _components_expenses_ExpensesIndex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/expenses/ExpensesIndex */ "./resources/js/components/expenses/ExpensesIndex.vue");
 /* harmony import */ var _components_dashboard_DashboardIndex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/dashboard/DashboardIndex */ "./resources/js/components/dashboard/DashboardIndex.vue");
-var _createApp;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
@@ -30129,15 +30125,13 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js"
 
 
 
-(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)((_createApp = {
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
   components: {
-    CategoriesIndex: _components_categories_CategoriesIndex__WEBPACK_IMPORTED_MODULE_2__["default"]
+    CategoriesIndex: _components_categories_CategoriesIndex__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ExpensesIndex: _components_expenses_ExpensesIndex__WEBPACK_IMPORTED_MODULE_3__["default"],
+    DashboardIndex: _components_dashboard_DashboardIndex__WEBPACK_IMPORTED_MODULE_4__["default"]
   }
-}, _defineProperty(_createApp, "components", {
-  ExpensesIndex: _components_expenses_ExpensesIndex__WEBPACK_IMPORTED_MODULE_3__["default"]
-}), _defineProperty(_createApp, "components", {
-  DashboardIndex: _components_dashboard_DashboardIndex__WEBPACK_IMPORTED_MODULE_4__["default"]
-}), _createApp)).use(_router__WEBPACK_IMPORTED_MODULE_1__["default"]).mount("#app");
+}).use(_router__WEBPACK_IMPORTED_MODULE_1__["default"]).mount("#app");
 
 /***/ }),
 
