@@ -21,17 +21,17 @@ Route::get('/', function () {
 
 Route::controller(DashboardController::class)->group(function () {
     Route::group(["prefix" => "api/dashboard", "as" => "api.dashboard"], function () {
-        Route::get("/maxExpense", "maxExpense")->name(".maxExpense");
-        Route::get("/minExpense", "minExpense")->name(".minExpense");
-        Route::get("/lastExpense", "lastExpense")->name(".lastExpense");
-        Route::get("/expensesThisMonth", "expensesThisMonth")->name(".expensesThisMonth");
-        Route::get("/expensesThisYear", "expensesThisYear")->name(".expensesThisYear");
-        Route::get("/spendingRepeat", "spendingRepeat")->name(".spendingRepeat");
-        Route::get("/categoryByYear", "categoryByYear")->name(".categoryByYear");
-        Route::get("/totalExpenseThisMonth", "totalExpenseThisMonth")->name(".totalExpenseThisMonth");
-        Route::get("/byMonthYear", "byMonthYear")->name(".byMonthYear");
-        Route::get("/years", "years")->name(".years");
-        Route::get("/totalExpenseThisYear", "totalExpenseThisYear")->name(".totalExpenseThisYear");
+        Route::get("/getMaxExpense", "getMaxExpense")->name(".getMaxExpense");
+        Route::get("/getMinExpense", "getMinExpense")->name(".getMinExpense");
+        Route::get("/getLastExpense", "getLastExpense")->name(".getLastExpense");
+        Route::get("/getExpensesThisMonth", "getExpensesThisMonth")->name(".getExpensesThisMonth");
+        Route::get("/getExpensesThisYear", "getExpensesThisYear")->name(".getExpensesThisYear");
+        Route::get("/getTotalExpenseThisMonth", "getTotalExpenseThisMonth")->name(".getTotalExpenseThisMonth");
+        Route::get("/getTotalExpenseThisYear", "getTotalExpenseThisYear")->name(".getTotalExpenseThisYear");
+        Route::get("/getSpendingRepeat", "getSpendingRepeat")->name(".getSpendingRepeat");
+        Route::get("/getExpensesByMonthYear", "getExpensesByMonthYear")->name(".getExpensesByMonthYear");
+        Route::get("getCategoryByYear", "getCategoryByYear")->name(".getCategoryByYear");
+        Route::get("/getYears", "getYears")->name(".getYears");
     });
 });
 

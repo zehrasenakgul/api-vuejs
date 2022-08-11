@@ -16,55 +16,59 @@ export default function useExpenses() {
     const categoryByYear = ref([]);
 
     const getMaxExpense = async () => {
-        let response = await axios.get("/api/dashboard/maxExpense");
-        maxexpense.value = response.data;
+        let response = await axios.get("/api/dashboard/getMaxExpense");
+        maxexpense.value = response.data.data;
     };
 
     const getMinExpense = async () => {
-        let response = await axios.get("/api/dashboard/minExpense");
-        minexpense.value = response.data;
+        let response = await axios.get("/api/dashboard/getMinExpense");
+        minexpense.value = response.data.data;
     };
 
     const getLastExpense = async () => {
-        let response = await axios.get("/api/dashboard/lastExpense");
-        lastexpense.value = response.data;
-        category.value = response.data.category;
+        let response = await axios.get("/api/dashboard/getLastExpense");
+        lastexpense.value = response.data.data;
+        category.value = response.data.data.category;
     };
 
     const getexpensesThisMonth = async () => {
-        let response = await axios.get("/api/dashboard/expensesThisMonth");
-        expensesThisMonth.value = response.data;
+        let response = await axios.get("/api/dashboard/getExpensesThisMonth");
+        expensesThisMonth.value = response.data.data;
     };
 
     const getTotalExpenseThisMonth = async () => {
-        let response = await axios.get("/api/dashboard/totalExpenseThisMonth");
-        totalExpenseThisMonth.value = response.data;
+        let response = await axios.get(
+            "/api/dashboard/getTotalExpenseThisMonth"
+        );
+        totalExpenseThisMonth.value = response.data.data;
     };
 
     const getSpendingRepeat = async () => {
-        let response = await axios.get("/api/dashboard/spendingRepeat");
-        spendingRepeat.value = response.data;
-        let yearsList = await axios.get("/api/dashboard/years");
-        years.value = yearsList.data;
+        let response = await axios.get("/api/dashboard/getSpendingRepeat");
+        spendingRepeat.value = response.data.data;
+        let yearsList = await axios.get("/api/dashboard/getYears");
+        years.value = yearsList.data.data;
     };
 
     const getExpensesThisYear = async () => {
-        let response = await axios.get("/api/dashboard/expensesThisYear");
-        expensesThisYear.value = response.data;
+        let response = await axios.get("/api/dashboard/getExpensesThisYear");
+        expensesThisYear.value = response.data.data;
     };
 
     const getTotalExpenseThisYear = async () => {
-        let response = await axios.get("/api/dashboard/totalExpenseThisYear");
-        totalExpenseThisYear.value = response.data;
+        let response = await axios.get(
+            "/api/dashboard/getTotalExpenseThisYear"
+        );
+        totalExpenseThisYear.value = response.data.data;
     };
 
     const getByMonthYear = async () => {
-        let response = await axios.get("/api/dashboard/byMonthYear");
-        byMonthYear.value = response.data;
+        let response = await axios.get("/api/dashboard/getExpensesByMonthYear");
+        byMonthYear.value = response.data.data;
     };
     const getCategoryByYear = async () => {
-        let response = await axios.get("/api/dashboard/categoryByYear");
-        categoryByYear.value = response.data;
+        let response = await axios.get("/api/dashboard/getCategoryByYear");
+        categoryByYear.value = response.data.data;
     };
 
     return {

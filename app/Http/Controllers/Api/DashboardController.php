@@ -10,40 +10,68 @@ use App\Models\Expense;
 class DashboardController extends Controller
 {
 
-    public function maxExpense()
+    public function getMaxExpense()
     {
-        return Expense::maxMin("desc");
+        return Expense::getMaxMin("desc");
     }
-    public function minExpense()
+    public function getMinExpense()
     {
-        return Expense::maxMin("asc");
+        return Expense::getMaxMin("asc");
     }
-    public function lastExpense()
+    public function getLastExpense()
     {
-        return Expense::orderBy('date', 'desc')->with("category")->first();
+        $getLastExpense = Expense::orderBy('date', 'desc')->with("category")->first();
+        return new DashboardResource($getLastExpense);
     }
-    public function expensesThisMonth()
+    public function getExpensesThisMonth()
     {
-        return Expense::getExpensesMonthOrYear("month");
+        $item = Expense::whereMonth('date', '=', now()->month)
+            ->with("category")
+            ->whereYear('date', '=', now()->year)
+            ->orderBy('date', 'asc')
+            ->get();
+        return new DashboardResource($item);
     }
-    public function expensesThisYear()
+    public function getExpensesThisYear()
     {
-        return Expense::getExpensesMonthOrYear("year");
+        $item = Expense::with("category")
+            ->whereYear('date', '=', now()->year)
+            ->orderBy('date', 'asc')
+            ->get();
+        return new DashboardResource($item);
     }
-    public function totalExpenseThisMonth()
+    public function getYears()
     {
-        return Expense::totalExpenseMonthOrYear("month");
-    }
-    public function totalExpenseThisYear()
-    {
-        return Expense::totalExpenseMonthOrYear("year");
-    }
-    public function years()
-    {
-        return Expense::years();
-    }
+        $years = Expense::selectRaw(
+            "EXTRACT(YEAR FROM `date`) as year"
+        )
+            ->groupBy("year")
+            ->orderBy('year', 'desc')
+            ->get();
 
-    public function spendingRepeat()
+        return new DashboardResource($years);
+    }
+    public function getTotalExpenseThisMonth()
+    {
+        $item =  Expense::selectRaw(
+            "sum(amount) as sums"
+        )
+            ->whereYear('date', '=', now()->year)
+            ->whereMonth('date', '=', now()->month)
+            ->first();
+
+        return new DashboardResource($item);
+    }
+    public function getTotalExpenseThisYear()
+    {
+        $item = Expense::selectRaw(
+            "sum(amount) as sums"
+        )
+            ->whereYear('date', '=', now()->year)
+            ->first();
+        return new DashboardResource($item);
+    }
+    public function getSpendingRepeat()
     {
         $expenses = Expense::select("spending")->selectRaw(
             "(COUNT(spending)) as count,EXTRACT(YEAR FROM `date`) as year"
@@ -56,10 +84,10 @@ class DashboardController extends Controller
         foreach ($expenses as $val) {
             $return[$val->year][] = $val;
         }
-        return $return;
+        return new DashboardResource($return);
     }
 
-    public function byMonthYear()
+    public function getExpensesByMonthYear()
     {
         $expenses = Expense::selectRaw(
             "(COUNT(spending)) as count,sum(amount) as sums,EXTRACT(YEAR FROM `date`) as year,EXTRACT(MONTH FROM `date`) as month"
@@ -72,12 +100,10 @@ class DashboardController extends Controller
         foreach ($expenses as $val) {
             $return[$val->year][] = $val;
         }
-        return $return;
+        return new DashboardResource($return);
     }
 
-
-
-    public function categoryByYear()
+    public function getCategoryByYear()
     {
         $expenses = Expense::select("category_id")
             ->selectRaw(
@@ -92,6 +118,6 @@ class DashboardController extends Controller
         foreach ($expenses as $val) {
             $return[$val->year][] = $val;
         }
-        return $return;
+        return new DashboardResource($return);
     }
 }

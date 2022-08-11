@@ -30395,11 +30395,11 @@ function useExpenses() {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/maxExpense");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/getMaxExpense");
 
             case 2:
               response = _context.sent;
-              maxexpense.value = response.data;
+              maxexpense.value = response.data.data;
 
             case 4:
             case "end":
@@ -30422,11 +30422,11 @@ function useExpenses() {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/minExpense");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/getMinExpense");
 
             case 2:
               response = _context2.sent;
-              minexpense.value = response.data;
+              minexpense.value = response.data.data;
 
             case 4:
             case "end":
@@ -30449,12 +30449,12 @@ function useExpenses() {
           switch (_context3.prev = _context3.next) {
             case 0:
               _context3.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/lastExpense");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/getLastExpense");
 
             case 2:
               response = _context3.sent;
-              lastexpense.value = response.data;
-              category.value = response.data.category;
+              lastexpense.value = response.data.data;
+              category.value = response.data.data.category;
 
             case 5:
             case "end":
@@ -30477,11 +30477,11 @@ function useExpenses() {
           switch (_context4.prev = _context4.next) {
             case 0:
               _context4.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/expensesThisMonth");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/getExpensesThisMonth");
 
             case 2:
               response = _context4.sent;
-              expensesThisMonth.value = response.data;
+              expensesThisMonth.value = response.data.data;
 
             case 4:
             case "end":
@@ -30504,11 +30504,11 @@ function useExpenses() {
           switch (_context5.prev = _context5.next) {
             case 0:
               _context5.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/totalExpenseThisMonth");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/getTotalExpenseThisMonth");
 
             case 2:
               response = _context5.sent;
-              totalExpenseThisMonth.value = response.data;
+              totalExpenseThisMonth.value = response.data.data;
 
             case 4:
             case "end":
@@ -30531,17 +30531,17 @@ function useExpenses() {
           switch (_context6.prev = _context6.next) {
             case 0:
               _context6.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/spendingRepeat");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/getSpendingRepeat");
 
             case 2:
               response = _context6.sent;
-              spendingRepeat.value = response.data;
+              spendingRepeat.value = response.data.data;
               _context6.next = 6;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/years");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/getYears");
 
             case 6:
               yearsList = _context6.sent;
-              years.value = yearsList.data;
+              years.value = yearsList.data.data;
 
             case 8:
             case "end":
@@ -30564,11 +30564,11 @@ function useExpenses() {
           switch (_context7.prev = _context7.next) {
             case 0:
               _context7.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/expensesThisYear");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/getExpensesThisYear");
 
             case 2:
               response = _context7.sent;
-              expensesThisYear.value = response.data;
+              expensesThisYear.value = response.data.data;
 
             case 4:
             case "end":
@@ -30591,11 +30591,11 @@ function useExpenses() {
           switch (_context8.prev = _context8.next) {
             case 0:
               _context8.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/totalExpenseThisYear");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/getTotalExpenseThisYear");
 
             case 2:
               response = _context8.sent;
-              totalExpenseThisYear.value = response.data;
+              totalExpenseThisYear.value = response.data.data;
 
             case 4:
             case "end":
@@ -30618,11 +30618,11 @@ function useExpenses() {
           switch (_context9.prev = _context9.next) {
             case 0:
               _context9.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/byMonthYear");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/getExpensesByMonthYear");
 
             case 2:
               response = _context9.sent;
-              byMonthYear.value = response.data;
+              byMonthYear.value = response.data.data;
 
             case 4:
             case "end":
@@ -30645,11 +30645,11 @@ function useExpenses() {
           switch (_context10.prev = _context10.next) {
             case 0:
               _context10.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/categoryByYear");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/dashboard/getCategoryByYear");
 
             case 2:
               response = _context10.sent;
-              categoryByYear.value = response.data;
+              categoryByYear.value = response.data.data;
 
             case 4:
             case "end":
