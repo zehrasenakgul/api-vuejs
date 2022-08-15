@@ -37,15 +37,15 @@ Route::controller(DashboardController::class)->group(function () {
 
 Route::get('/dashboard', function () {
     return view('layouts.dashboard.dashboard');
-})->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::get('/categories', function () {
     return view('layouts.categories.categories');
-})->name('categories');
+})->middleware(['auth'])->name('categories');
 
 Route::get('/expenses', function () {
     return view('layouts.expenses.expenses');
-})->name('expenses');
+})->middleware(['auth'])->name('expenses');
 
 
 
