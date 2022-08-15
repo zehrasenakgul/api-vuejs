@@ -19,8 +19,8 @@ class ExpenseFactory extends Factory
     {
         return [
             "amount" => $this->faker->numberBetween(200, 9000),
-            "spending" => $this->faker->sentence,
-            "date" => $this->faker->date,
+            "spending" => $this->faker->word(),
+            "date" => $this->faker->dateTimeBetween('-5 years',  'now'),
             'category_id' => $this->faker->randomElement(Category::pluck('id')),
         ];
     }
