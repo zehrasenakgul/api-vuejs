@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\DestroyCategoryRequest;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -26,7 +29,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(StoreCategoryRequest $request)
     {
         $category = Category::create($request->validated());
         return new CategoryResource(($category));
@@ -50,7 +53,7 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
         $category->update($request->validated());
         return new CategoryResource(($category));
@@ -62,9 +65,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(DestroyCategoryRequest $request, Category $category)
     {
-        $category->delete();
+        $category->delete($request->validated());
         return response()->noContent();
     }
 }

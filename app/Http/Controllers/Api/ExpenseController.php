@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DestroyExpenseRequest;
 use App\Http\Requests\ExpenseRequest;
+use App\Http\Requests\StoreExpenseRequest;
+use App\Http\Requests\UpdateExpenseRequest;
 use App\Http\Resources\ExpenseResource;
 use App\Models\Expense;
 use Illuminate\Http\Request;
@@ -26,7 +29,7 @@ class ExpenseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ExpenseRequest $request)
+    public function store(StoreExpenseRequest $request)
     {
         $expense = Expense::create($request->validated());
         return new ExpenseResource(($expense));
@@ -50,7 +53,7 @@ class ExpenseController extends Controller
      * @param  \App\Models\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function update(ExpenseRequest $request, Expense $expense)
+    public function update(UpdateExpenseRequest $request, Expense $expense)
     {
         $expense->update($request->validated());
         return new ExpenseResource(($expense));
@@ -62,9 +65,9 @@ class ExpenseController extends Controller
      * @param  \App\Models\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Expense $expense)
+    public function destroy(DestroyExpenseRequest $request, Expense $expense)
     {
-        $expense->delete();
+        $expense->delete($request->validated());
         return response()->noContent();
     }
 }

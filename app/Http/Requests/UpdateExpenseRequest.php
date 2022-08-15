@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ExpenseRequest extends FormRequest
+class UpdateExpenseRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class ExpenseRequest extends FormRequest
         return [
             'amount' => ["required"],
             'spending' => ["required"],
-            'category_id' => ["required"],
+            'category_id' => ["required", "exists:categories,id"],
             'date' => ["required"],
         ];
     }
@@ -37,7 +37,7 @@ class ExpenseRequest extends FormRequest
             'amount.required' => 'This Spending Amount field is required',
             'spending.required' => 'This Spent Place field is required',
             'category_id.required' => 'This Select Category field is required',
-            'date.required' => 'This Date field is required',
+            'date.required' => 'This Date field is required' . $this->expense->id
         ];
     }
 }
